@@ -1,3 +1,5 @@
+#pragma once
+
 constexpr int INFINITY = 10000000;
 
 constexpr int PAWN_WEIGHT = 100;

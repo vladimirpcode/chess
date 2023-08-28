@@ -1,9 +1,12 @@
+#pragma once
+
 #include "chess_piece.h"
 
 class Board{
 public:
-    ChessPiece get(char horizontal, int vertical);
-    ChessPiece set(char horizontal, int vertical, ChessPiece piece);
+    Board();
+    ChessPiece get(char vertical, int horizontal);
+    ChessPiece set(char vertical, int horizontal, ChessPiece piece);
 private:
     ChessPiece _fields[8][8];
 };

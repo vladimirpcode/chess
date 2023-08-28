@@ -1,6 +1,17 @@
 #include "chess_piece.h"
 #include "constants.h"
 
+
+ChessPiece::ChessPiece(char char_present){
+
+}
+
+ChessPiece::ChessPiece(){
+    _type = ChessPieceType::BLANK;
+    _color = Color::WHITE;
+    _weight = 0;
+}
+
 ChessPiece::ChessPiece(ChessPieceType type, Color color){
     _type = type;
     _color = color;
@@ -25,4 +36,33 @@ int ChessPiece::weight(){
  
 Color ChessPiece::color(){
     return _color;
+}
+
+char to_upper_for_chess_piece(char c){
+    switch (c){
+        case 'k': return 'K';
+        case 'q': return 'Q';
+        case 'r': return 'R';
+        case 'b': return 'B';
+        case 'n': return 'N';
+        case 'p': return 'P';
+    }
+    return c;
+}
+
+char ChessPiece::get_char_present(){
+    char result = ' ';
+    switch (_type){
+        case ChessPieceType::BLANK: result = ' '; break;
+        case ChessPieceType::KING: result = 'k'; break;
+        case ChessPieceType::QUEEN: result = 'q'; break;
+        case ChessPieceType::ROCK: result = 'r'; break;
+        case ChessPieceType::BISHOP: result = 'b'; break;
+        case ChessPieceType::KNIGHT: result = 'n'; break;
+        case ChessPieceType::PAWN: result = 'p'; break;
+    }
+    if (_color == Color::WHITE && _type != ChessPieceType::BLANK){
+        result = to_upper_for_chess_piece(result);
+    }
+    return result;
 }

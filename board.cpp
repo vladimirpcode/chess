@@ -1,9 +1,13 @@
 #include "board.h"
 
-ChessPiece Board::get(char horizontal, int vertical){
-    return _fields[horizontal-97][vertical-1];
+Board::Board(){
+    
 }
 
-ChessPiece Board::set(char horizontal, int vertical, ChessPiece piece){
-    _fields[horizontal-97][vertical-1] = piece;
+ChessPiece Board::get(char vertical, int horizontal){
+    return _fields[horizontal-1][vertical-97];
+}
+
+ChessPiece Board::set(char vertical, int horizontal, ChessPiece piece){
+    _fields[horizontal-1][vertical-97] = piece;
 }

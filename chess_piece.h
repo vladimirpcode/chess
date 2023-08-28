@@ -1,3 +1,5 @@
+#pragma once
+
 enum class ChessPieceType{
     PAWN,
     KNIGHT,
@@ -15,10 +17,13 @@ enum class Color{
 
 class ChessPiece{
 public:
+    ChessPiece(char char_present);
     ChessPiece(ChessPieceType, Color);
+    ChessPiece();
     ChessPieceType type();
     int weight();
     Color color();
+    char get_char_present();
 private:
     ChessPieceType _type;
     int _weight;

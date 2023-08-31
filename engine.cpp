@@ -103,6 +103,10 @@ void Engine::make_move(Move move){
     
 }
 
+void Engine::unmake_move(){
+
+}
+
 void Engine::print_position(){
     for (int horizontal = 8; horizontal >= 1; horizontal--){
         for (char vertical = 'a'; vertical <= 'h'; vertical++){
@@ -142,6 +146,15 @@ std::vector<Move> Engine::get_moves_for_knight(char vertical, int horizontal){
 std::vector<Move> Engine::get_moves_for_pawn(char vertical, int horizontal, Color color){
     // 1. обычный ход вперед 2. взятие 
     // 3. взятие на проходе 4. превращение
+    int increment = 1;
+    if (color == Color::BLACK){
+        increment = -1;
+    }
+    // Обычный ход
+    if (is_correct_pos(vertical, horizontal + increment) &&
+        is_blank_pos(vertical, horizontal + increment)){
+        
+    }
     
 }
 
@@ -167,11 +180,15 @@ std::vector<Move> Engine::get_all_moves(){
     return all_moves;
 }
 
-void Engine::make_move(Move move){
+bool Engine::is_king_atacked(Color color){
 
 }
 
-void Engine::unmake_move(){
+bool Engine::is_correct_pos(char vertical, int horizontal){
 
 }
 
+
+bool Engine::is_blank_pos(char vertical, int horizontal){
+
+}

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "engine.h"
 #include <string>
-#include <move.h>
+#include "move.h"
 
 void test(){
     Engine engine;
@@ -15,7 +15,7 @@ void test(){
 
 int main(){
     test();
-    return;
+    return 0;
     Engine engine;
     engine.set_position_from_fen(std::string("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"));
     engine.print_position();

@@ -146,16 +146,22 @@ std::vector<Move> Engine::get_moves_for_knight(char vertical, int horizontal){
 std::vector<Move> Engine::get_moves_for_pawn(char vertical, int horizontal, Color color){
     // 1. обычный ход вперед 2. взятие 
     // 3. взятие на проходе 4. превращение
+    std::vector<Move> result_moves;
     int increment = 1;
     if (color == Color::BLACK){
         increment = -1;
     }
     // Обычный ход
-    if (is_correct_pos(vertical, horizontal + increment) &&
-        is_blank_pos(vertical, horizontal + increment)){
+    if (is_correct_pos(vertical, horizontal + increment)){
         
     }
-    
+    // Взятие
+    if (is_correct_pos(vertical - 1, horizontal + increment) && 
+        !is_blank_pos(vertical - 1, horizontal + increment) && 
+        _board.get(vertical - 1, horizontal + increment).color() != color){
+        
+    }
+    return result_moves;
 }
 
 std::vector<Move> Engine::get_all_moves(){
@@ -189,6 +195,21 @@ bool Engine::is_correct_pos(char vertical, int horizontal){
 }
 
 
-bool Engine::is_blank_pos(char vertical, int horizontal){
+bool Engine::is_blank_pos(Point pos){
+
+}
+
+bool Engine::is_correct_move(Move move){
+    bool result = false;
+    Color king_color = _board.get(move._start.vertical, move._start.horizontal).color;
+    make_move(move);
+    if (!is_king_atacked(king_color)){
+        result = true;
+    }
+    unmake_move();
+    return result;
+}
+
+bool Engine::is_last_horizontal(Point pos, Color move_color){
 
 }

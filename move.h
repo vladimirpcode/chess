@@ -12,8 +12,6 @@ struct Point{
 class Move{
     friend class Engine;
 public:
-    Move();
-    Move(std::string user_input);
     Move(Point start, Point end);
     std::string to_string_present();
 private:

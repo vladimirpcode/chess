@@ -39,5 +39,7 @@ private:
     std::vector<Move> get_moves_for_pawn(char vertical, int horizontal, Color color);
     bool is_king_atacked(Color color);
     bool is_correct_pos(char vertical, int horizontal);
-    bool is_blank_pos(char vertical, int horizontal);
+    bool is_blank_pos(Point pos);
+    bool is_correct_move(Move move);
+    bool is_last_horizontal(Point pos, Color move_color);
 };
